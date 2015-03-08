@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.2/angular-material.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/component.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	</head>
+	<body ng-app="app">
+		<section class="container" ng-controller="indexCtrl" ng-init="init()">
+			<header>
+				<div class="mainMenu" layout="row">
+					<div flex="15" flex-sm="25">
+						<md-card class="menuActive">
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/home2.png" alt="Washed Out">
+							  <h1 class="textMenu">Home</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/blog.png" alt="Washed Out">
+							  <h1 class="textMenu">Blog</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="40" hide-sm>
+						<div class="signature">noomerzx</div>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/works.png" alt="Washed Out">
+							  <h1 class="textMenu">Works</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/iam.png" alt="Washed Out">
+							  <h1 class="textMenu">I am..</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</header>
+			<section class="bodyContent">
+				<div layout="row">
+					<h1 class="head">
+						บทความ
+					</h1>
+				</div>
+				<div class="blogList" layout="row" layout-wrap>
+					<div flex="100" flex-gt-md="50">
+						<md-card>
+						  <img class="imgCover imgCoverForRecent" src="imgs/cover.jpg" alt="Washed Out">
+						  <md-card-content class="recentBlog">
+							  <h1>Title</h1>
+							  <p class="cardDesc">
+								The titles of Washed Out's breakthrough song and the first 
+								single from Paracosm share the two most important words in Ernest Greene's 
+								musical language: feel it. It's a simple request, as well...
+							  </p>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div ng-repeat="item in blogList" flex="50" flex-gt-md="25">
+						<md-card>
+						  <img class="imgCover imgCoverFor4" src="{{item.Img}}" alt="Washed Out">
+						  <md-card-content>
+							<h1>{{item.Name}}</h1>
+							<p class="cardDesc">
+								{{item.Content}}
+							</p>
+						  </md-card-content>
+						</md-card>
+					</div>
+				</div>
+				<div layout="row">
+					<h1 class="head">
+						ผลงาน
+					</h1>
+				</div>
+				<div class="workList" layout="row" layout-wrap>
+					<div ng-repeat="item in portfolios" flex="100" flex-gt-md="33">
+						<md-card>
+						  <img class="imgCover imgCoverFor3" src="{{item.Img}}" alt="Washed Out">
+						  <md-card-content>
+							<h1>{{item.Name}}</h1>
+							<p class="cardDesc">
+							  {{item.Content}}
+							</p>
+						  </md-card-content>
+						</md-card>
+					</div>
+				</div>
+			</section>
+			<footer>
+			</footer>
+		</section>
+		 <!-- Angular Material Dependencies -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.2/angular-material.min.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/indexController.js"></script>
+		<script src="scripts/modernizr.custom.js"></script>
+		<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+			    }
+			    return r.className;
+			};	
+
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				changeClass(this, 'navtoogle active', 'navtoogle');
+			}
+
+			// http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+				if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+					changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+				}
+			}
+		</script>
+	</body>
+</html>
