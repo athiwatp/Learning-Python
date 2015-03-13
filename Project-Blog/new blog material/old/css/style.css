@@ -1,0 +1,293 @@
+@font-face {
+	font-family:'ThaiSan';
+	src:url('../fonts/ThaiSansNeue-Light.ttf');
+}
+
+@font-face {
+	font-family:'Signature';
+	src:url('../fonts/Ginga.ttf');
+}
+
+/* main zone */
+body{
+	background-color:#e9eaed;
+	height:auto;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color:#263238;
+	/* font-size:22px; */
+}
+
+footer{
+	display:block;
+	width:100%;
+	left:0;
+	bottom:0;
+	margin-top:50px;
+	background-color:#37474F;
+}
+
+h1,h2,h3{
+	margin:0px;
+	font-family:ThaiSan;
+}
+
+.footerContent{
+	text-align:center;
+	color:white;
+	padding-top:25px;
+	padding-bottom:40px;
+}
+
+.footerSignature{
+	margin-top:20px;
+	font-size:14px;
+}
+
+.footerSocial{
+	font-size:55px;
+	color:#CFD8DC;
+}
+
+.footerSocial:hover{
+	color:white;
+}
+
+.imgLogoBox{
+	width:175px;
+	margin:20px auto 40px auto;
+}
+
+.workTitle{
+	border-top:1px solid #ddd;
+	background-color:#eee;
+}
+.workPhoto:hover{
+	opacity:0.8;
+}
+
+.blogFooter{
+	border-top:1px solid #ddd;
+	background-color:#eee;
+	/* color:white; */
+	height:61px;
+}
+
+.blogFooter > div{
+	font-weight:bold;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	height:100%;
+}
+
+.blogFooterContent{
+	line-height:26px;
+}
+
+.mainMenu{
+	max-width:550px;
+	margin:0px auto;
+	text-align:center;
+	height:124px;
+}
+
+.mainMenu a, .footerContent a {
+	color:inherit;
+	text-decoration:none;
+}
+
+.headerMenu{
+	position:fixed;
+}
+
+.menuActive {
+	/* box-shadow: 0 27px 24px 0 rgba(0,0,0,.2); */
+	border:4px solid #263238;
+}
+
+.textMenu{
+	text-align:center;
+	font-size:1.5em;
+}
+
+.head{
+	margin:35px 8px 10px 8px;
+	font-size:45px;
+	font-family:ThaiSan;
+	border-bottom:3px solid #263238;
+	width:100%;
+}
+
+.container{
+	max-width:1200px;
+	margin:0px auto;
+}
+
+.content{
+	margin:8px;
+}
+
+.signature{
+	font-family:Signature;
+	text-align:center;
+	font-size:190px;
+	line-height:200px;
+	color:#2196f3;
+	background: -webkit-linear-gradient(#2196f3, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: -2px 20px 6px rgba(132, 93, 111, 0.32);
+}
+
+.recentBlog{
+	height:160px;
+}
+
+.blogList .cardDesc{
+	height:170px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-size:14px;
+	line-height:21px;
+}
+
+.workList .cardDesc{
+	height:110px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-size:14px;
+	line-height:21px;
+}
+/* end main */
+
+/* modify directive */
+
+header md-card{
+	background:#f6f7f8;
+}
+
+md-card{
+	background:white;
+}
+
+md-card-content > p {
+	margin:0px;
+}
+
+.bodyContent md-card:hover{
+	cursor:pointer;
+}
+
+.bodyContent md-card:hover .blogFooter{
+	/* box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.19); */
+	/* background-color:#35465c; */
+	background-color:#455A64;
+	color:white;
+}
+
+header md-card:not(.menuActive):hover{
+	/* box-shadow: 0px 27px 24px 0 rgba(0, 0, 0, 0.2); */
+	box-shadow:none;
+	border:4px solid #e9eaed;
+	border:4px solid #263238;
+	cursor:pointer;
+}
+
+/* end directive */
+
+/* image zone */
+.imgLogo{
+	-webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
+	border-radius: 90px;
+	max-width:175px;
+	max-height:175px;
+	border:10px solid #263238;
+}
+
+.imgMenu{
+	object-fit:contain;
+	width:100%;
+	height:70px;
+	text-align:center;
+}
+
+.imgCover{
+	object-fit:cover;
+}
+
+.img1Quarter{
+	height:190px;
+}
+
+.img1Third{
+	height:220px;
+}
+
+.img1Half{
+	max-height:273px;
+}
+/* end image */
+
+
+
+/* utility zone */
+.clearfix{
+	height:0px;
+	line-height:0px;
+	clear:both;
+}
+
+.noPadding{
+	padding:0px;
+}
+
+.noMargin{
+	margin:0px;
+}
+.textLeft{
+	text-align:left;
+}
+
+.textRight{
+	text-align:right;
+}
+
+.textCenter{
+	text-align:center;
+}
+/* end utility */
+
+
+/* media for mobile */
+@media screen and (max-width: 600px) {
+	h1{
+		font-size:1.4em;
+	}
+	
+	.textMenu{
+		font-size:1.1em;
+	}
+
+
+	.blogList .cardDesc {
+		height:105px !important;
+		font-size:12px !important;
+	}
+	.workList .cardDesc {
+		height:85px !important;
+		font-size:12px !important;
+	}
+	
+	.blogFooter > div {
+		font-size:12px;
+	}
+	
+	.imgMenu{
+		height:30px;
+	}
+	
+	.img1Quarter{
+		height:140px;
+	}
+}
