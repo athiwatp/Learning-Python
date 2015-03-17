@@ -6,6 +6,10 @@ class IndexHandler(BaseHandler):
 	def get(self):
 		self.render("index.html")
 		
+class BlogHandler(BaseHandler):
+	def get(self):
+		self.render("blog.html")
+		
 class MoviesHandler(BaseHandler):
 	def get(self):
 		self.response.write(fresh_tomatoes.rendering_movies_page(my_data.get_movies_data()))

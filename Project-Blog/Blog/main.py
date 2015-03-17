@@ -19,6 +19,7 @@ import webapp2
 	
 app = webapp2.WSGIApplication([
     ('/', index.IndexHandler),
+	('/blog', index.BlogHandler),
 	('/movies', index.MoviesHandler),
 	('/encryption', index.EncryptionHandler),
 	('/signup', index.SignupHandler),

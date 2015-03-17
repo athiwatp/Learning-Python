@@ -40,10 +40,73 @@
 		<link rel="stylesheet" type="text/css" href="static/css/component.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/animate.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/loader.css"> 
+		<style>
+			.md-tabs-content{
+				cursor:default;
+			}
+			.content{
+				min-height:975px;
+				margin-top:50px;
+				cursor:default;
+			}
+			.blogBox{
+				width:inherit;
+				height:250px;
+				margin:25px 15px;
+				border:1px solid #ddd;
+				box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+			}
+			.blogBox:hover{
+				background:-webkit-linear-gradient(top,#fdfdfd 0,#fcfcfc 10%,#f6f6f6 60%,#f0f0f0 80%,#ededed 90%);
+				opacity:0.9;
+			}
+			.blogLeft,.blogRight{
+				position:relative;
+				float:left;
+				height:inherit;
+				cursor:pointer;
+			}
+			.blogLeft{
+				width:35%;
+				padding:10px;
+			}
+			.blogRight{
+				width:65%;
+				padding:10px 15px;
+			}
+			.blogRowImg{
+				width:100%;
+				height:100%;
+				object-fit:cover;
+			}
+			.blogContentDetail{
+				width:100%;
+				height:inherit;
+				overflow:hidden;
+				text-overflow:ellipsis;
+			}
+			@media screen and (max-width:600px){
+				.blogBox{
+					height:150px;
+				}
+				.blogRight{
+					width:55%;
+					padding:10px 15px;
+				}
+				.blogLeft{
+					width:45%;
+				}
+				.blogContentDetail{
+					height:80px;
+					margin-top:5px;
+					line-height:20px;
+				}
+			}
+		</style>
 	</head>
     
     <body class="off" ng-app="app">
-		<section class="container" ng-controller="indexCtrl" ng-init="init()">
+		<section class="container" ng-controller="blogCtrl" ng-init="init()">
 			<header>
 				<div layout="row" class="fadein scale anim_1">
 					<div id="trigger" class="imgLogoBox">
@@ -61,22 +124,22 @@
 				</div>
 				<div class="mainMenu" layout="row">
 					<div flex class="fadein scaleInv anim_3">
-						<md-card class="menuActive">
+						<a href="/">
+						<md-card class="">
 						  <md-card-content>
 							  <h1><i class="fa fa-home"></i></h1>
 							  <h1 class="textMenu">Home</h1>
 						  </md-card-content>
 						</md-card>
+						</a>
 					</div>
 					<div flex class="fadein scaleInv anim_4">
-						<a href="/blog">
-						<md-card class="">
+						<md-card class="menuActive">
 						  <md-card-content>
 							  <h1><i class="fa fa-pencil"></i></h1>
 							  <h1 class="textMenu">Blog</h1>
 						  </md-card-content>
 						</md-card>
-						</a>
 					</div>
 					<div flex class="fadein scaleInv anim_5">
 						<md-card class="">
@@ -97,74 +160,31 @@
 				</div>
 				<div class="clearfix"></div>
 			</header>
-			<section class="bodyContent">
-				<div layout="row" class="fadein scale anim_1">
-					<h1 class="head">
-						RECENT BLOG
-					</h1>
-				</div>
-				<div class="recentList" layout="row" layout-wrap>
-					<div flex="100" flex-gt-md="50" class="fadein scaleInv anim_1">
-						<md-card>
-						  <img class="imgCover img1Half" src="static/imgs/cover.jpg" alt="Washed Out">
-						  <md-card-content class="recentBlog">
-							  <h1>Title</h1>
-							  <p class="cardDesc">
-								The titles of Washed Out's breakthrough song and the first 
-								single from Paracosm share the two most important words in Ernest Greene's 
-								musical language: feel it. It's a simple request, as well...
-							  </p>
-						  </md-card-content>
-						  <md-card-content class="blogFooter">
-							<div layout="row">
-							  <div flex class="blogFooterContent textLeft">
-								@ 20/07/2015
-							  </div>
-							  <div flex class="blogFooterContent textRight">
-								215 Views
-							  </div>
-							</div>
-						  </md-card-content>
-						</md-card>
-					</div>
-					<div ng-repeat="item in recentList" flex="50" flex-gt-md="25" class="fadein scaleInv anim_{[{$index+2}]}">
-						<md-card>
-						  <img class="imgCover img1Quarter" src="{[{item.Img}]}" alt="Washed Out">
-						  <md-card-content>
-							<h1>{[{item.Name}]}</h1>
-							<p class="cardDesc">
-								{[{item.Content}]}
-							</p>
-						  </md-card-content>
-						  <md-card-content class="blogFooter">
-							<div layout="row">
-							  <div flex class="blogFooterContent textLeft">
-								@ 20/07/2015
-							  </div>
-							  <div flex class="blogFooterContent textRight">
-								215 Views
-							  </div>
-							</div>
-						  </md-card-content>
-						</md-card>
-					</div>
-				</div>
-				<div layout="row" class="fadein scale anim_4">
-					<h1 class="head">
-						Works
-					</h1>
-				</div>
-				<div class="workList" layout="row" layout-wrap>
-					<div ng-repeat="item in portfolios" flex="100" flex-gt-md="33" class="fadein scaleInv anim_{[{$index+5}]}">
-						<md-card>
-							<md-card class="workPhoto">
-							  <img class="imgCover img1Third" src="{[{item.Img}]}" alt="Washed Out">
-							</md-card>
-							  <md-card-content class="workTitle textCenter">
-								<h1>{[{item.Name}]}</h1>
-							  </md-card-content>
-						</md-card>
-					</div>
+			<section class="bodyContent fadein scale anim_1">
+				<div layout="row">
+					<md-card class="content" flex>
+						<md-tabs md-selected="selectedIndex" flex>
+							<md-tab ng-repeat="blog in blogs | groupBy: 'Type'"
+									ng-disabled="tab.disabled"
+									label="{[{getTitle($index)}]}">
+									<div class="blogBox" ng-repeat="detail in blog">
+										<div class="blogLeft">
+											<img class="blogRowImg" src="{[{detail.Img}]}">
+										</div>
+										<div class="blogRight">
+											<div layout="column">
+												<div flex="20">
+													<h1>{[{detail.Name}]}</h1>
+												</div>
+												<div flex="80">
+													<p class="blogContentDetail">{[{detail.Content}]}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+							</md-tab>
+						</md-tabs>
+					</md-card>
 				</div>
 			</section>
 		</section>
@@ -198,7 +218,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.4/angular-filter.min.js"></script>
         <script src="static/scripts/loader.min.js"></script>
 		<script src="static/scripts/app.js"></script>
-		<script src="static/scripts/indexController.js"></script>
+		<script src="static/scripts/blogController.js"></script>
 		<script>
 
 			var $body = $('body');

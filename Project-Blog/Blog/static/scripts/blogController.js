@@ -1,77 +1,74 @@
-app.controller('indexCtrl', ['$scope', function($scope){
-	$scope.recentBlog = null;
-	$scope.blogList = [];
-	$scope.portfolios = [];
+app.controller('blogCtrl', ['$scope', function($scope){
+	$scope.blogs = [];
+	$scope.title = [];
+	
+	$scope.getTitle = function(index){
+		return $scope.title[index];
+	};
 	
 	$scope.init = function(){
-		$scope.recentList = [
+		$scope.title = ['Book','Movie','Review','Tech','Travel']
+	
+		$scope.blogs = [
 			{
 				Name:"ไอสไตน์ กล่าวไว้ !",
 				Content:"สวัสดีค่ะน้องๆ ชาว Dek-D.com... ไอน์สไตน์เคยบอกไว้ว่าจินตนาการสำคัญกว่าความรู้ แต่ในความเป็นจริง ถ้ามีทั้งจินตนาการและความรู้ไปพร้อมๆ กันก็จะเพอร์เฟคที่สุด เหมือนอย่างวันนี้ที่พี่มิ้นท์จะมาแนะนำเว็บไซต์ที่ให้ความรู้ครอบจักรวาล... ครอบจักรวาลยังไง เดี๋ยวตามมาดูค่ะ",
-				Img:"static/imgs/a.jpg"
+				Img:"static/imgs/a.jpg",
+				Type:'tech'
 			},
 			{
-				Name:"Title",
+				Name:"TitleBook",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/b.jpg"
+				Img:"static/imgs/b.jpg",
+				Type:'book'
 			},
 			{
-				Name:"Title",
+				Name:"TitleTravel",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/c.jpg"
+				Img:"static/imgs/c.jpg",
+				Type:'travel'
 			},
 			{
-				Name:"Title",
+				Name:"TitleReview",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/d.jpg"
+				Img:"static/imgs/d.jpg",
+				Type:'review'
 			},
 			{
-				Name:"Title",
+				Name:"TitleMovie",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/e.jpg"
+				Img:"static/imgs/e.jpg",
+				Type:'movie'
 			},
 			{
-				Name:"Title",
+				Name:"TitleMovie",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/f.jpg"
+				Img:"static/imgs/f.jpg",
+				Type:'movie'
 			},
 			{
-				Name:"Title",
+				Name:"TitleTech",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/g.jpg"
+				Img:"static/imgs/g.jpg",
+				Type:'tech'
 			},
 			{
-				Name:"Title",
+				Name:"TitleBook",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/h.jpg"
+				Img:"static/imgs/h.jpg",
+				Type:'book'
 			},
 			{
-				Name:"Title",
+				Name:"TitleTech",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/i.jpg"
+				Img:"static/imgs/i.jpg",
+				Type:'tech'
 			},
 			{
-				Name:"Title",
+				Name:"TitleMovie",
 				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/j.jpg"
-			}
-		];
-		
-		$scope.portfolios = [
-			{
-				Name:"noomerZx Blog",
-				Content:"สวัสดีค่ะน้องๆ ชาว Dek-D.com... ไอน์สไตน์เคยบอกไว้ว่าจินตนาการสำคัญกว่าความรู้ แต่ในความเป็นจริง ถ้ามีทั้งจินตนาการและความรู้ไปพร้อมๆ กันก็จะเพอร์เฟคที่สุด เหมือนอย่างวันนี้ที่พี่มิ้นท์จะมาแนะนำเว็บไซต์ที่ให้ความรู้ครอบจักรวาล... ครอบจักรวาลยังไง เดี๋ยวตามมาดูค่ะ",
-				Img:"static/imgs/k.jpg"
-			},
-			{
-				Name:"Shooting Simulation System",
-				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/l.jpg"
-			},
-			{
-				Name:"Bocha Shop",
-				Content:"The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...",
-				Img:"static/imgs/m.jpg"
+				Img:"static/imgs/j.jpg",
+				Type:'movie'
 			}
 		];
 	};
