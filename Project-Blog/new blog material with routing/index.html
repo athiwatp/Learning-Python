@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.2/angular-material.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/component.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/> -->
+	</head>
+	<body ng-app="app">
+		<section class="container">
+			<header>
+				<div class="mainMenu" layout="row">
+					<div flex="15" flex-sm="25">
+						<md-card class="menuActive">
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/home2.png" alt="Washed Out">
+							  <h1 class="textMenu">Home</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/blog.png" alt="Washed Out">
+							  <h1 class="textMenu">Blog</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="40" hide-sm>
+						<div class="signature">noomerzx</div>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/works.png" alt="Washed Out">
+							  <h1 class="textMenu">Works</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+					<div flex="15" flex-sm="25">
+						<md-card>
+						  <md-card-content>
+							  <img class="imgMenu" src="imgs/iam.png" alt="Washed Out">
+							  <h1 class="textMenu">I am..</h1>
+						  </md-card-content>
+						</md-card>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</header>
+			<section class="bodyContent">
+				<div ng-view>
+				</div>
+			</section>
+			<footer>
+			</footer>
+		</section>
+		 <!-- Angular Material Dependencies -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.2/angular-material.min.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers.js"></script>
+		<!-- <script src="scripts/modernizr.custom.js"></script> -->
+	</body>
+</html>
