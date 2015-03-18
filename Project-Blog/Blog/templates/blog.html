@@ -106,60 +106,70 @@
 	</head>
     
     <body class="off" ng-app="app">
+	    <div class="mobileHeader">
+		    <div layout="row" class="container">
+			    <a href="/" flex>
+			        <h1 class="menu"><i class="fa fa-home"></i></h1>
+				</a>
+				<h1 class="menu menuMobileActive" flex><i class="fa fa-pencil"></i></h1>
+				<h1 class="menu" flex><i class="fa fa-archive"></i></h1>
+				<h1 class="menu" flex><i class="fa fa-street-view"></i></h1>
+			</div>
+		</div>
+	    <header>
+			<div layout="row" class="fadein scale anim_1">
+				<div id="trigger" class="imgLogoBox">
+					<img class="imgLogo" src="static/imgs/logo_head.png" alt="Washed Out">
+				</div>
+			</div>
+			<div layout="row">
+				<h1 flex class="headerQuote fadein scale anim_2">
+					"อย่าพยายามที่จะเป็นคนที่เก่งที่สุด...
+					<br>
+					เพราะจะมีคนที่เก่งกว่าเราเสมอ
+					<br>
+					จงพยายามที่จะแตกต่างและสร้างความโดดเด่นให้อยู่เหนือใคร"
+				</h1>
+			</div>
+			<div class="mainMenu" layout="row">
+				<div flex class="fadein scaleInv anim_3">
+					<a href="/">
+					<md-card class="">
+					  <md-card-content>
+						  <h1><i class="fa fa-home"></i></h1>
+						  <h1 class="textMenu">Home</h1>
+					  </md-card-content>
+					</md-card>
+					</a>
+				</div>
+				<div flex class="fadein scaleInv anim_4">
+					<md-card class="menuActive">
+					  <md-card-content>
+						  <h1><i class="fa fa-pencil"></i></h1>
+						  <h1 class="textMenu">Blog</h1>
+					  </md-card-content>
+					</md-card>
+				</div>
+				<div flex class="fadein scaleInv anim_5">
+					<md-card class="">
+					  <md-card-content>
+						  <h1><i class="fa fa-archive"></i></h1>
+						  <h1 class="textMenu">Works</h1>
+					  </md-card-content>
+					</md-card>
+				</div>
+				<div flex class="fadein scaleInv anim_6">
+					<md-card class="">
+					  <md-card-content>
+						  <h1><i class="fa fa-street-view"></i></h1>
+						  <h1 class="textMenu">I am...</h1>
+					  </md-card-content>
+					</md-card>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</header>
 		<section class="container" ng-controller="blogCtrl" ng-init="init()">
-			<header>
-				<div layout="row" class="fadein scale anim_1">
-					<div id="trigger" class="imgLogoBox">
-						<img class="imgLogo" src="static/imgs/logo_head.png" alt="Washed Out">
-					</div>
-				</div>
-				<div layout="row">
-					<h1 flex class="headerQuote fadein scale anim_2">
-						"อย่าพยายามที่จะเป็นคนที่เก่งที่สุด...
-						<br>
-						เพราะจะมีคนที่เก่งกว่าเราเสมอ
-						<br>
-						จงพยายามที่จะแตกต่างและสร้างความโดดเด่นให้อยู่เหนือใคร"
-					</h1>
-				</div>
-				<div class="mainMenu" layout="row">
-					<div flex class="fadein scaleInv anim_3">
-						<a href="/">
-						<md-card class="">
-						  <md-card-content>
-							  <h1><i class="fa fa-home"></i></h1>
-							  <h1 class="textMenu">Home</h1>
-						  </md-card-content>
-						</md-card>
-						</a>
-					</div>
-					<div flex class="fadein scaleInv anim_4">
-						<md-card class="menuActive">
-						  <md-card-content>
-							  <h1><i class="fa fa-pencil"></i></h1>
-							  <h1 class="textMenu">Blog</h1>
-						  </md-card-content>
-						</md-card>
-					</div>
-					<div flex class="fadein scaleInv anim_5">
-						<md-card class="">
-						  <md-card-content>
-							  <h1><i class="fa fa-archive"></i></h1>
-							  <h1 class="textMenu">Works</h1>
-						  </md-card-content>
-						</md-card>
-					</div>
-					<div flex class="fadein scaleInv anim_6">
-						<md-card class="">
-						  <md-card-content>
-							  <h1><i class="fa fa-street-view"></i></h1>
-							  <h1 class="textMenu">I am...</h1>
-						  </md-card-content>
-						</md-card>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</header>
 			<section class="bodyContent fadein scale anim_1">
 				<div layout="row">
 					<md-card class="content" flex>
@@ -238,6 +248,23 @@
 	                }, 2500)
 
 	            });
+				
+				$(window).scroll(function () {
+					if($(this).scrollTop() > 450)
+					{
+						if (!$('.mobileHeader').hasClass('headerActive'))
+						{
+							$('.mobileHeader').stop().addClass('headerActive').css('top', '-50px').animate(
+								{
+									'top': '0px'
+								}, 500);
+						}
+					}
+					else
+					{
+						$('.mobileHeader').removeClass('headerActive');
+					}
+                });
 
 	        });
 

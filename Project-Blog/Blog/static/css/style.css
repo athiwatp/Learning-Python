@@ -42,9 +42,65 @@ h1,h2,h3{
 	cursor:pointer;
 }
 
+.mobileHeader{
+    width: 100%;
+    height: 50px;
+    background-color: #263238;
+    z-index:1;
+    display:none;
+}
+
+.mobileHeader .container{
+    max-width:550px;
+	height:inherit;
+}
+
+.mobileHeader .menu{
+	color:white;
+	font-weight:bold;
+	text-align:center;
+	margin:0px 2px;
+}
+
+.mobileHeader .menu i{
+    padding-top:6px;
+}
+
+.mobileHeader .menu:hover{
+    cursor:pointer;
+    background-color:white;
+    color:#263238;
+	box-shadow:         inset 0 6px 10px rgba(20,20,20,0.2);
+	border-top:3px solid #263238;
+	border-bottom:3px solid #263238;
+}
+
+.mobileHeader .menuMobileActive{
+    background-color:white;
+    color:#263238;
+	box-shadow:         inset 0 6px 10px rgba(20,20,20,0.2);
+	border-top:3px solid #263238;
+	border-bottom:3px solid #263238;
+}
+
+/* .mobileHeader .menu:nth-child(1){
+    border-left:2px solid white;
+}
+
+.mobileHeader .menu:nth-child(1),.mobileHeader .menu:nth-child(2),.mobileHeader .menu:nth-child(3),.mobileHeader .menu:nth-child(4){
+	border-right:2px solid white;
+} */
+
+.headerActive{
+    display: block;
+    position:fixed;
+}
+
 .headerQuote{
 	text-align:center;
 	font-weight:bold;
+	width:450px;
+	margin:0px auto;
 }
 
 .footerContent{
@@ -199,6 +255,10 @@ md-card{
 	background:white;
 }
 
+md-card md-card-content{
+    padding:10px;
+}
+
 .recentList md-card-content:not(.blogFooter){
 	-webkit-box-shadow: inset 0 6px 10px rgba(20,20,20,0.2);
 	-moz-box-shadow:    inset 0 6px 10px rgba(20,20,20,0.2);
@@ -331,6 +391,9 @@ header md-card:not(.menuActive):hover{
 		font-size:1.1em;
 	}
 
+	.mobileHeader{
+	    height:40px;
+	}
 
 	.recentList .cardDesc {
 		height:80px !important;
