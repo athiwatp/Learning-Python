@@ -252,6 +252,21 @@ header md-card:not(.menuActive):hover{
 	border:10px solid #263238;
 }
 
+.imgLogo:hover{
+    -webkit-animation:spin 0.8s ease-in 1;
+    -moz-animation:spin 0.8s ease-in 1;
+    animation:spin 0.8s ease-in 1;
+}
+
+.imgLogo:active{
+    border:20px solid #263238;
+	-webkit-transition: border 200ms linear;
+    -moz-transition: border 200ms linear;
+    -o-transition: border 200ms linear;
+    -ms-transition: border 200ms linear;
+	transition: border 200ms linear;
+}
+
 .imgMenu{
 	object-fit:contain;
 	width:100%;
