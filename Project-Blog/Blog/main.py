@@ -21,6 +21,8 @@ app = webapp2.WSGIApplication([
     ('/', index.IndexHandler),
 	('/blog', index.BlogHandler),
 	('/movies', index.MoviesHandler),
+	('/assignment', index.AssignmentHandler),
+	('/unittest', index.UnitTestHandler),
 	('/encryption', index.EncryptionHandler),
 	('/signup', index.SignupHandler),
 	('/welcome', index.WelcomeHandler)

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Reuters Assignment</title>
+		<link rel="stylesheet" type="text/css" href="static/assignment/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/assignment/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/assignment/css/style.css"/>
+	</head>
+	<body ng-app="app">
+		<div class="container" ng-controller="MainCtrl" ng-init="init()">
+			<h2>Informations</h2>
+			<div class="row">
+				<div class="col-xs-12 searchBox">
+					<input class="form-control" type="text" placeholder="Find your result data." ng-model="searchText" ng-keyup="hilightText()">
+				</div>
+				<div class="col-xs-12 errorMsgBox">
+					<div class="col-xs-12"><span>[ {[{currentSelected}]} ]</span> has been in the list</div>
+				</div>
+				<div class="col-xs-12">
+					<ul id="detailList" ng-class="{showList:searchText != '',hideList:searchText == ''}">
+						<li ng-repeat="detail in dataDetailList | filter:textFilter" ng-click="selectedDetail(detail)">
+							<div class="col-xs-4">{[{detail.title}]}</div>
+							<div class="col-xs-8">
+								<p>{[{detail.type}]} - {[{detail.title}]}</p>
+								<p>{[{detail.subtitle}]}</p>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-12">
+					<table class="table table-striped table-hover table-bordered">
+					  <tr>
+						<th width="45%">Ric</th>
+						<th width="50%">Title</th>
+						<th width="5%" ng-click="removeAllData()"><i class="fa fa-trash" ng-hide="isRemoved"></i></th>
+					  </tr>
+					  <tr class="rowData" ng-repeat="data in showList">
+						<td>{[{data.title}]}</td>
+						<td>{[{data.ric}]}</td>
+						<td ng-click="removeData(data)"><i class="fa fa-remove"></i></td>
+					  </tr>
+					</table>
+					<div class="noItem" ng-hide="!isRemoved">"No selected RIC"</div>
+				</div>
+			</div>
+			<div class="row" ng-hide="isRemoved">
+				<nav class="col-xs-12 pageBox">
+				  <ul class="pagination">
+					<li>
+					  <a href="#" aria-label="Previous" ng-class="{disabled:isFirstPage()}" ng-click="changePage(currentPage-1)" >
+						<span aria-hidden="true">&laquo;</span>
+					  </a>
+					</li>
+					<li ng-class="activePage(page)" ng-repeat="page in pages"><a href="#" ng-click="changePage(page)">{[{page}]}</a></li>
+					<li>
+					  <a href="#" aria-label="Next" ng-class="{disabled:isLastPage()}" ng-click="changePage(currentPage+1)">
+						<span aria-hidden="true">&raquo;</span>
+					  </a>
+					</li>
+				  </ul>
+				</nav>
+			</div>
+			<hr>
+		</div>
+		<script src="static/assignment/js/jquery-2.1.3.js"></script>
+		<script src="static/assignment/js/jquery.highlight.js"></script>
+		<script src="static/assignment/js/bootstrap.js"></script>
+		<script src="static/assignment/js/angular.min.js"></script>
+		<script src="static/assignment/js/app.js"></script>
+		<script src="static/assignment/js/services.js"></script>
+		<script src="static/assignment/js/controller.js"></script>
+	</body>
+</html>

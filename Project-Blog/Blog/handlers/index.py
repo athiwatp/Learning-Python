@@ -9,7 +9,15 @@ class IndexHandler(BaseHandler):
 class BlogHandler(BaseHandler):
 	def get(self):
 		self.render("blog.html")
+	
+class AssignmentHandler(BaseHandler):
+	def get(self):
+		self.render("assignment.html")
 		
+class UnitTestHandler(BaseHandler):
+	def get(self):
+		self.render("SpecRunner.html")
+	
 class MoviesHandler(BaseHandler):
 	def get(self):
 		self.response.write(fresh_tomatoes.rendering_movies_page(my_data.get_movies_data()))
